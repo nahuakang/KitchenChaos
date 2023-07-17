@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -31,5 +28,8 @@ public class Player : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         transform.position +=  Time.deltaTime * moveSpeed * moveDirection;
+
+        float rotateSpeed = 10f;
+        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
 }
