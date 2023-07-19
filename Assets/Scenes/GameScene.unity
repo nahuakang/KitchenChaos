@@ -636,10 +636,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1114363189920834830, guid: 91c4e415c66fd3241840ea82c1f1772d,
+        type: 3}
+      propertyPath: tomatoPrefab
+      value: 
+      objectReference: {fileID: 6400217484447106572, guid: 85394b91b5fee4345b76cfc3729347a0,
+        type: 3}
+    - target: {fileID: 1114363189920834830, guid: 91c4e415c66fd3241840ea82c1f1772d,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e19ad839eea6f24fa07b3416da2e3a6,
+        type: 2}
     - target: {fileID: 8463273864994915968, guid: 91c4e415c66fd3241840ea82c1f1772d,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter (1)
+      value: ClearCounter1
       objectReference: {fileID: 0}
     - target: {fileID: 9170063370012395028, guid: 91c4e415c66fd3241840ea82c1f1772d,
         type: 3}
