@@ -14,7 +14,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter SelectedCounter;
+        public BaseCounter SelectedCounter;
     }
 
     // The GameObject containing the `GameInput.cs` script for player input systems
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private const float PlayerRadius = .7f;
     private const float PlayerHeight = 2f;
     private Vector3 lastInteractDirection;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -83,11 +83,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit raycastHit, interactDistance, counterLayerMask))
         {
             // Try get a ClearCounter
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycastHit.transform.TryGetComponent(out BaseCounter kitchenCounter))
             {
-                if (clearCounter != selectedCounter)
+                if (kitchenCounter != selectedCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(kitchenCounter);
                 }
             }
             else
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
 
-    private void SetSelectedCounter(ClearCounter seClearCounter)
+    private void SetSelectedCounter(BaseCounter seClearCounter)
     {
         selectedCounter = seClearCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
