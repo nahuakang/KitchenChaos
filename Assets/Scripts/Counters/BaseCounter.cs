@@ -17,7 +17,7 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void InteractAlternate(Player player)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
     public Transform GetKitchenObjectFollowTransform()
